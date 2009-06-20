@@ -1,0 +1,9 @@
+bookmark:
+  - http://example.com/bookmarks/{bookmark_id}
+  - http://example.com/bookmarks/{bookmark_id}.{format}
+
+static_path:
+  - http://example.com/static_path
+
+search:
+  - http://example.com/search

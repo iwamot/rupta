@@ -1,0 +1,70 @@
+= README
+
+== Descrption
+
+Rupta is a router library for Web applications. The routes can be defined with {URI Template}[http://bitworking.org/projects/URI-Templates/]. The usage is so simple. See the following examples.
+
+== Installation
+
+  $ sudo gem install iwamot-rupta --source http://gems.github.com
+
+== Examples
+
+=== examples/fixtures/routes.yml
+
+  bookmark:
+    - http://example.com/bookmarks/{bookmark_id}
+    - http://example.com/bookmarks/{bookmark_id}.{format}
+  static_path:
+    - http://example.com/static_path
+  search:
+    - http://example.com/search
+
+=== examples/routing_with_yaml.rb
+
+  yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
+
+  require 'rupta/factory'
+  rupta = Rupta::Factory.new.create
+
+  # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
+  p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
+  # => ["user", "http://example.com/bookmarks/{bookmark_id}.{format}", {"bookmark_id"=>"123", "format"=>"atom"}]
+
+  # if the uri is static, the extracted parameters is empty
+  p rupta.detect(yaml_path, 'http://example.com/static_path')
+  # => ["static_path", "http://example.com/static_path", {}]
+
+  # query strings are omitted
+  p rupta.detect(yaml_path, 'http://example.com/search?q=foo')
+  # => ["search", "http://example.com/search", {}]
+
+  # when no route is found, Rupta#detect returns nil
+  p rupta.detect(yaml_path, 'http://example.com/not_found')
+  # => nil
+
+=== examples/routing_with_hash.rb
+
+  routes = {'bookmark'    => ['http://example.com/bookmarks/{bookmark_id}',
+                              'http://example.com/bookmarks/{bookmark_id}.{format}'],
+            'static_path' => ['http://example.com/static_path'],
+            'search'      => ['http://example.com/search']}
+
+  require 'rupta/factory'
+  rupta = Rupta::Factory.new.create
+
+  # use Rupta#detect_with_hash, if you can create the routes manually
+  p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
+  # => ["user", "http://example.com/bookmarks/{bookmark_id}.{format}", {"bookmark_id"=>"123", "format"=>"atom"}]
+
+== Requirement
+
+Rupta-0.9.0 was tested with Ruby 1.8.7 and 1.9.1.
+
+== Dependencies
+
+ * addressable-2.1.0
+
+== Copyright
+
+Copyright (c) 2009 IWAMOTO Takashi. See LICENSE for details.
