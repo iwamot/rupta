@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: README.rdoc [Rupta-0.9.0]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./Rupta.html">Rupta</a></li>
+				
+					<li><a href="./Rupta/Factory.html">Rupta::Factory</a></li>
+				
+					<li><a href="./Rupta/UriExtractProcessor.html">Rupta::UriExtractProcessor</a></li>
+				
+					<li><a href="./Rupta/UriExtractProcessor/Default.html">Rupta::UriExtractProcessor::Default</a></li>
+				
+					<li><a href="./Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
+				
+					<li><a href="./Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
+				
+					<li><a href="./Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1>README</h1>
+<h2>Descrption</h2>
+<p>
+<a href="Rupta.html">Rupta</a> is a router library for Web applications.
+The routes can be defined with <a
+href="http://bitworking.org/projects/URI-Templates/">URI Template</a>. The
+usage is so simple. See the following examples.
+</p>
+<h2>Installation</h2>
+<pre>
+  $ sudo gem install iwamot-rupta --source http://gems.github.com
+</pre>
+<h2>Examples</h2>
+<h3>examples/fixtures/routes.yml</h3>
+<pre>
+  bookmark:
+    - http://example.com/bookmarks/{bookmark_id}
+    - http://example.com/bookmarks/{bookmark_id}.{format}
+  static_path:
+    - http://example.com/static_path
+  search:
+    - http://example.com/search
+</pre>
+<h3>examples/routing_with_yaml.rb</h3>
+<pre>
+  yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
+
+  require 'rupta/factory'
+  rupta = Rupta::Factory.new.create
+
+  # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
+  p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
+  # =&gt; [&quot;user&quot;, &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;, {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
+
+  # if the uri is static, the extracted parameters is empty
+  p rupta.detect(yaml_path, 'http://example.com/static_path')
+  # =&gt; [&quot;static_path&quot;, &quot;http://example.com/static_path&quot;, {}]
+
+  # query strings are omitted
+  p rupta.detect(yaml_path, 'http://example.com/search?q=foo')
+  # =&gt; [&quot;search&quot;, &quot;http://example.com/search&quot;, {}]
+
+  # when no route is found, Rupta#detect returns nil
+  p rupta.detect(yaml_path, 'http://example.com/not_found')
+  # =&gt; nil
+</pre>
+<h3>examples/routing_with_hash.rb</h3>
+<pre>
+  routes = {'bookmark'    =&gt; ['http://example.com/bookmarks/{bookmark_id}',
+                              'http://example.com/bookmarks/{bookmark_id}.{format}'],
+            'static_path' =&gt; ['http://example.com/static_path'],
+            'search'      =&gt; ['http://example.com/search']}
+
+  require 'rupta/factory'
+  rupta = Rupta::Factory.new.create
+
+  # use Rupta#detect_with_hash, if you can create the routes manually
+  p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
+  # =&gt; [&quot;user&quot;, &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;, {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
+</pre>
+<h2>Requirement</h2>
+<p>
+Rupta-0.9.0 was tested with Ruby 1.8.7 and 1.9.1.
+</p>
+<h2>Dependencies</h2>
+<pre>
+ * addressable-2.1.0
+</pre>
+<h2>Copyright</h2>
+<p>
+Copyright &#169; 2009 IWAMOTO Takashi. See <a
+href="LICENSE.html">LICENSE</a> for details.
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+
