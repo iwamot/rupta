@@ -25,7 +25,7 @@ Rupta is a router library for Web applications. The routes can be defined with {
   yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
 
   require 'rupta/factory'
-  rupta = Rupta::Factory.new.create
+  rupta = Rupta::Factory.create
 
   # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
   p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
@@ -51,7 +51,7 @@ Rupta is a router library for Web applications. The routes can be defined with {
             'search'      => ['http://example.com/search']}
 
   require 'rupta/factory'
-  rupta = Rupta::Factory.new.create
+  rupta = Rupta::Factory.create
 
   # use Rupta#detect_with_hash, if you can create the routes manually
   p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
@@ -59,7 +59,7 @@ Rupta is a router library for Web applications. The routes can be defined with {
 
 == Requirement
 
-Rupta-0.9.0 was tested with Ruby 1.8.7 and 1.9.1.
+Rupta-0.9.1 was tested with Ruby 1.8.7 and 1.9.1.
 
 == Dependencies
 

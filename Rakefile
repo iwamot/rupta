@@ -13,7 +13,7 @@ begin
 
     gem.require_path = 'lib'
     gem.add_dependency('addressable', '>= 2.1.0')
-    gem.files = FileList['lib/**/*.rb', 'README.rdoc', 'LICENSE']
+    gem.files = FileList['lib/**/*.rb', 'README.rdoc', 'LICENSE', 'CHANGELOG']
 
     gem.has_rdoc = true
 
@@ -52,5 +52,6 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "Rupta-#{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('LICENSE')
+  rdoc.rdoc_files.include('CHANGELOG')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

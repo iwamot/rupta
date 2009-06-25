@@ -6,7 +6,7 @@ require 'rupta/yaml_loader'
 
 class Rupta
   class Factory
-    def create(uri_extract_processor = Rupta::UriExtractProcessor::Default.new)
+    def self.create(uri_extract_processor = Rupta::UriExtractProcessor::Default.new)
       Rupta.new(
         Rupta::UriPurifier.new,
         Rupta::UriExtractor.new(uri_extract_processor),

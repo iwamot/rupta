@@ -14,7 +14,7 @@ describe "Rupta#detect_with_hash" do
                'static_path' => ['http://example.com/static_path'],
                'search'      => ['http://example.com/search']}
 
-    @rupta = Rupta::Factory.new.create
+    @rupta = Rupta::Factory.create
   end
 
   it "should detect a correct route" do
