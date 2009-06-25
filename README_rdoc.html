@@ -6,7 +6,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>File: README.rdoc [Rupta-0.9.0]</title>
+	<title>File: README.rdoc [Rupta-0.9.1]</title>
 
 	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
 
@@ -28,6 +28,8 @@
 			<div id="fileindex-section" class="section project-section">
 				<h3 class="section-header">Files</h3>
 				<ul>
+				
+					<li class="file"><a href="./CHANGELOG.html">CHANGELOG</a></li>
 				
 					<li class="file"><a href="./LICENSE.html">LICENSE</a></li>
 				
@@ -103,7 +105,7 @@ usage is so simple. See the following examples.
   yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
 
   require 'rupta/factory'
-  rupta = Rupta::Factory.new.create
+  rupta = Rupta::Factory.create
 
   # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
   p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
@@ -129,7 +131,7 @@ usage is so simple. See the following examples.
             'search'      =&gt; ['http://example.com/search']}
 
   require 'rupta/factory'
-  rupta = Rupta::Factory.new.create
+  rupta = Rupta::Factory.create
 
   # use Rupta#detect_with_hash, if you can create the routes manually
   p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
@@ -137,7 +139,7 @@ usage is so simple. See the following examples.
 </pre>
 <h2>Requirement</h2>
 <p>
-Rupta-0.9.0 was tested with Ruby 1.8.7 and 1.9.1.
+Rupta-0.9.1 was tested with Ruby 1.8.7 and 1.9.1.
 </p>
 <h2>Dependencies</h2>
 <pre>
