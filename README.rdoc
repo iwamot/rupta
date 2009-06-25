@@ -27,9 +27,12 @@ Rupta is a router library for Web applications. The routes can be defined with {
   require 'rupta/factory'
   rupta = Rupta::Factory.create
 
-  # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
+  # Rupta#detect returns the name of a detected route,
+  # a matched URI template and extracted URI parameters
   p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
-  # => ["user", "http://example.com/bookmarks/{bookmark_id}.{format}", {"bookmark_id"=>"123", "format"=>"atom"}]
+  # => ["bookmark",
+  #     "http://example.com/bookmarks/{bookmark_id}.{format}",
+  #     {"bookmark_id"=>"123", "format"=>"atom"}]
 
   # if the uri is static, the extracted parameters is empty
   p rupta.detect(yaml_path, 'http://example.com/static_path')
@@ -55,7 +58,9 @@ Rupta is a router library for Web applications. The routes can be defined with {
 
   # use Rupta#detect_with_hash, if you can create the routes manually
   p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
-  # => ["user", "http://example.com/bookmarks/{bookmark_id}.{format}", {"bookmark_id"=>"123", "format"=>"atom"}]
+  # => ["bookmark",
+  #     "http://example.com/bookmarks/{bookmark_id}.{format}",
+  #     {"bookmark_id"=>"123", "format"=>"atom"}]
 
 == Requirement
 
