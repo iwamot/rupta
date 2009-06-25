@@ -107,9 +107,12 @@ usage is so simple. See the following examples.
   require 'rupta/factory'
   rupta = Rupta::Factory.create
 
-  # Rupta#detect returns the name of a detected route, a matched URI template and extracted URI parameters
+  # Rupta#detect returns the name of a detected route,
+  # a matched URI template and extracted URI parameters
   p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
-  # =&gt; [&quot;user&quot;, &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;, {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
+  # =&gt; [&quot;bookmark&quot;,
+  #     &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;,
+  #     {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
 
   # if the uri is static, the extracted parameters is empty
   p rupta.detect(yaml_path, 'http://example.com/static_path')
@@ -135,7 +138,9 @@ usage is so simple. See the following examples.
 
   # use Rupta#detect_with_hash, if you can create the routes manually
   p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
-  # =&gt; [&quot;user&quot;, &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;, {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
+  # =&gt; [&quot;bookmark&quot;,
+  #     &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;,
+  #     {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
 </pre>
 <h2>Requirement</h2>
 <p>
