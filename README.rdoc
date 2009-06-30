@@ -1,6 +1,6 @@
 = README
 
-== Descrption
+== Description
 
 Rupta is a router library for Web applications. The routes can be defined with {URI Template}[http://bitworking.org/projects/URI-Templates/]. The usage is so simple. See the following examples.
 
