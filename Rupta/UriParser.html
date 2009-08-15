@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: Rupta::UriExtractor</title>
+	<title>Class: Rupta::UriParser</title>
 
 	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
 
@@ -28,8 +28,8 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="../lib/rupta/uri_extractor_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/uri_extractor.rb">lib/rupta/uri_extractor.rb</a></li>
+						<li><a href="../lib/rupta/uri_parser_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/uri_parser.rb">lib/rupta/uri_parser.rb</a></li>
 					
 					</ul>
 				</div>
@@ -59,9 +59,7 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000005">::new</a></li>
-					
-					<li><a href="#M000006">#extract</a></li>
+					<li><a href="#M000008">#parse</a></li>
 					
 				</ul>
 			</div>
@@ -128,7 +126,7 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">Rupta::UriExtractor</h1>
+		<h1 class="class">Rupta::UriParser</h1>
 
 		<div id="description">
 			
@@ -142,55 +140,17 @@
 
 		<!-- Methods -->
 		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
-
-		
-			<div id="new-method" class="method-detail ">
-				<a name="M000005"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">(uri_extract_processor)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p class="missing-docs">(Not documented)</p>
-					
-
-					
-					<div class="method-source-code"
-						id="new-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/rupta/uri_extractor.rb, line 6</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri_extract_processor</span>)
-      <span class="ruby-ivar">@uri_extract_processor</span> = <span class="ruby-identifier">uri_extract_processor</span>
-    <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-			</div>
-
-		
-		</div>
-	
 		<div id="public-instance-method-details" class="method-section section">
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
-			<div id="extract-method" class="method-detail ">
-				<a name="M000006"></a>
+			<div id="parse-method" class="method-detail ">
+				<a name="M000008"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">extract</span><span
-						class="method-args">(uri_templates, uri)</span>
+					<span class="method-name">parse</span><span
+						class="method-args">(uri)</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -202,15 +162,11 @@
 
 					
 					<div class="method-source-code"
-						id="extract-source">
+						id="parse-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta/uri_extractor.rb, line 10</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">extract</span>(<span class="ruby-identifier">uri_templates</span>, <span class="ruby-identifier">uri</span>)
-      <span class="ruby-identifier">uri_templates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uri_template</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">uri_parameters</span> = <span class="ruby-constant">Addressable</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri_template</span>).<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-ivar">@uri_extract_processor</span>)
-        <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">uri_template</span>, <span class="ruby-identifier">uri_parameters</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">uri_parameters</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">nil</span>
+<span class="ruby-comment cmt"># File lib/rupta/uri_parser.rb, line 6</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>)
+      <span class="ruby-constant">Addressable</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>)
     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					

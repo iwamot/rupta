@@ -59,7 +59,9 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000007">#purify</a></li>
+					<li><a href="#M000009">::new</a></li>
+					
+					<li><a href="#M000010">#purify</a></li>
 					
 				</ul>
 			</div>
@@ -111,6 +113,8 @@
 				
 					<li><a href="../Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
 				
+					<li><a href="../Rupta/UriParser.html">Rupta::UriParser</a></li>
+				
 					<li><a href="../Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
 				
 					<li><a href="../Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
@@ -138,12 +142,50 @@
 
 		<!-- Methods -->
 		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000009"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(uri_parser)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rupta/uri_purifier.rb, line 3</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri_parser</span>)
+      <span class="ruby-ivar">@uri_parser</span> = <span class="ruby-identifier">uri_parser</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
 		<div id="public-instance-method-details" class="method-section section">
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
 			<div id="purify-method" class="method-detail ">
-				<a name="M000007"></a>
+				<a name="M000010"></a>
 
 				<div class="method-heading">
 				
@@ -162,9 +204,9 @@
 					<div class="method-source-code"
 						id="purify-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta/uri_purifier.rb, line 6</span>
+<span class="ruby-comment cmt"># File lib/rupta/uri_purifier.rb, line 7</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">purify</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span>)
-      <span class="ruby-constant">Addressable</span><span class="ruby-operator">::</span><span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>).<span class="ruby-identifier">omit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">omittable_uri_components</span>)
+      <span class="ruby-ivar">@uri_parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>).<span class="ruby-identifier">omit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">omittable_uri_components</span>)
     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					

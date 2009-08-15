@@ -59,7 +59,7 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000006">::create</a></li>
+					<li><a href="#M000011">::create</a></li>
 					
 				</ul>
 			</div>
@@ -111,6 +111,8 @@
 				
 					<li><a href="../Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
 				
+					<li><a href="../Rupta/UriParser.html">Rupta::UriParser</a></li>
+				
 					<li><a href="../Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
 				
 					<li><a href="../Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
@@ -143,7 +145,7 @@
 
 		
 			<div id="create-method" class="method-detail ">
-				<a name="M000006"></a>
+				<a name="M000011"></a>
 
 				<div class="method-heading">
 				
@@ -162,10 +164,10 @@
 					<div class="method-source-code"
 						id="create-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta/factory.rb, line 9</span>
+<span class="ruby-comment cmt"># File lib/rupta/factory.rb, line 10</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">uri_extract_processor</span> = <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">UriExtractProcessor</span><span class="ruby-operator">::</span><span class="ruby-constant">Default</span>.<span class="ruby-identifier">new</span>)
       <span class="ruby-constant">Rupta</span>.<span class="ruby-identifier">new</span>(
-        <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">UriPurifier</span>.<span class="ruby-identifier">new</span>,
+        <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">UriPurifier</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">UriParser</span>.<span class="ruby-identifier">new</span>),
         <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">UriExtractor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri_extract_processor</span>),
         <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">YamlLoader</span>.<span class="ruby-identifier">new</span>
       )
