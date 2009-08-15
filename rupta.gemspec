@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["IWAMOTO Takashi"]
-  s.date = %q{2009-06-25}
+  s.date = %q{2009-08-15}
   s.description = %q{Rupta is a router library for Web applications. The routes can be defined with URI Template.}
   s.email = %q{hello@iwamot.com}
   s.extra_rdoc_files = [
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
      "lib/rupta/factory.rb",
      "lib/rupta/uri_extract_processor/default.rb",
      "lib/rupta/uri_extractor.rb",
+     "lib/rupta/uri_parser.rb",
      "lib/rupta/uri_purifier.rb",
      "lib/rupta/yaml_loader.rb"
   ]
