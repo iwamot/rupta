@@ -48,7 +48,7 @@ Rake::RDocTask.new do |rdoc|
     version = ""
   end
 
-  rdoc.rdoc_dir = 'rdoc'
+  rdoc.rdoc_dir = '../rupta_rdoc'
   rdoc.title = "Rupta-#{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('LICENSE')
