@@ -8,7 +8,7 @@ end
 describe "Rupta#detect" do
   before(:all) do
     @yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
-    @rupta = Rupta::Factory.create
+    @rupta = Rupta::Factory.new.create
   end
 
   it "should detect a correct route" do
