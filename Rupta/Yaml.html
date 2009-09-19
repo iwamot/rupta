@@ -5,7 +5,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>Class: Rupta::Factory</title>
+	<title>Class: Rupta::Yaml</title>
 
 	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
 
@@ -28,8 +28,11 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="../lib/rupta/factory_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/factory.rb">lib/rupta/factory.rb</a></li>
+						<li><a href="../lib/rupta/yaml_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/yaml.rb">lib/rupta/yaml.rb</a></li>
+					
+						<li><a href="../lib/rupta/yaml/factory_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/yaml/factory.rb">lib/rupta/yaml/factory.rb</a></li>
 					
 					</ul>
 				</div>
@@ -52,6 +55,15 @@
 
 			<!-- Namespace Contents -->
 			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">CLASS</span> <a href="Yaml/Factory.html">Rupta::Yaml::Factory</a></li>
+					
+				</ul>
+			</div>
+			
 
 			<!-- Method Quickref -->
 			
@@ -59,9 +71,9 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000012">::new</a></li>
+					<li><a href="#M000001">::new</a></li>
 					
-					<li><a href="#M000013">#create</a></li>
+					<li><a href="#M000002">#detect</a></li>
 					
 				</ul>
 			</div>
@@ -134,7 +146,7 @@
 	</div>
 
 	<div id="documentation">
-		<h1 class="class">Rupta::Factory</h1>
+		<h1 class="class">Rupta::Yaml</h1>
 
 		<div id="description">
 			
@@ -153,12 +165,12 @@
 
 		
 			<div id="new-method" class="method-detail ">
-				<a name="M000012"></a>
+				<a name="M000001"></a>
 
 				<div class="method-heading">
 				
 					<span class="method-name">new</span><span
-						class="method-args">(uri_extract_processor = Rupta::Helper::UriExtractProcessor::Default.new)</span>
+						class="method-args">(router, yaml_loader)</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -172,9 +184,10 @@
 					<div class="method-source-code"
 						id="new-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta/factory.rb, line 9</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri_extract_processor</span> = <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">UriExtractProcessor</span><span class="ruby-operator">::</span><span class="ruby-constant">Default</span>.<span class="ruby-identifier">new</span>)
-      <span class="ruby-ivar">@uri_extract_processor</span> = <span class="ruby-identifier">uri_extract_processor</span>
+<span class="ruby-comment cmt"># File lib/rupta/yaml.rb, line 3</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">router</span>, <span class="ruby-identifier">yaml_loader</span>)
+      <span class="ruby-ivar">@router</span> = <span class="ruby-identifier">router</span>
+      <span class="ruby-ivar">@yaml_loader</span> = <span class="ruby-identifier">yaml_loader</span>
     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
@@ -190,13 +203,13 @@
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
-			<div id="create-method" class="method-detail ">
-				<a name="M000013"></a>
+			<div id="detect-method" class="method-detail ">
+				<a name="M000002"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">create</span><span
-						class="method-args">()</span>
+					<span class="method-name">detect</span><span
+						class="method-args">(path, uri, omittable_uri_components = [:query])</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -208,14 +221,12 @@
 
 					
 					<div class="method-source-code"
-						id="create-source">
+						id="detect-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta/factory.rb, line 13</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
-      <span class="ruby-constant">Rupta</span>.<span class="ruby-identifier">new</span>(
-        <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">UriPurifier</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">UriParser</span>.<span class="ruby-identifier">new</span>),
-        <span class="ruby-constant">Rupta</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span><span class="ruby-operator">::</span><span class="ruby-constant">UriExtractor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@uri_extract_processor</span>)
-      )
+<span class="ruby-comment cmt"># File lib/rupta/yaml.rb, line 8</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span> = [<span class="ruby-identifier">:query</span>])
+      <span class="ruby-identifier">routes</span> = <span class="ruby-ivar">@yaml_loader</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-ivar">@router</span>.<span class="ruby-identifier">detect</span>(<span class="ruby-identifier">routes</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span>)
     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					

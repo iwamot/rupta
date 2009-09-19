@@ -6,7 +6,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>File: README.rdoc [Rupta-0.9.1]</title>
+	<title>File: README.rdoc [Rupta-0.9.2]</title>
 
 	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
 
@@ -58,17 +58,23 @@
 				
 					<li><a href="./Rupta/Factory.html">Rupta::Factory</a></li>
 				
-					<li><a href="./Rupta/UriExtractProcessor.html">Rupta::UriExtractProcessor</a></li>
+					<li><a href="./Rupta/Helper.html">Rupta::Helper</a></li>
 				
-					<li><a href="./Rupta/UriExtractProcessor/Default.html">Rupta::UriExtractProcessor::Default</a></li>
+					<li><a href="./Rupta/Helper/UriExtractProcessor.html">Rupta::Helper::UriExtractProcessor</a></li>
 				
-					<li><a href="./Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
+					<li><a href="./Rupta/Helper/UriExtractProcessor/Default.html">Rupta::Helper::UriExtractProcessor::Default</a></li>
 				
-					<li><a href="./Rupta/UriParser.html">Rupta::UriParser</a></li>
+					<li><a href="./Rupta/Helper/UriExtractor.html">Rupta::Helper::UriExtractor</a></li>
 				
-					<li><a href="./Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
+					<li><a href="./Rupta/Helper/UriParser.html">Rupta::Helper::UriParser</a></li>
 				
-					<li><a href="./Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
+					<li><a href="./Rupta/Helper/UriPurifier.html">Rupta::Helper::UriPurifier</a></li>
+				
+					<li><a href="./Rupta/Helper/YamlLoader.html">Rupta::Helper::YamlLoader</a></li>
+				
+					<li><a href="./Rupta/Yaml.html">Rupta::Yaml</a></li>
+				
+					<li><a href="./Rupta/Yaml/Factory.html">Rupta::Yaml::Factory</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -82,7 +88,7 @@
 		<h1>README</h1>
 <h2>Description</h2>
 <p>
-<a href="Rupta.html">Rupta</a> is a router library for Web applications.
+<a href="Rupta.html">Rupta</a> is a router library for web applications.
 The routes can be defined with <a
 href="http://bitworking.org/projects/URI-Templates/">URI Template</a>. The
 usage is so simple. See the following examples.
@@ -92,6 +98,35 @@ usage is so simple. See the following examples.
   $ sudo gem install iwamot-rupta --source http://gems.github.com
 </pre>
 <h2>Examples</h2>
+<h3>examples/routing.rb</h3>
+<pre>
+  routes = {'bookmark'    =&gt; ['http://example.com/bookmarks/{bookmark_id}',
+                              'http://example.com/bookmarks/{bookmark_id}.{format}'],
+            'static_path' =&gt; ['http://example.com/static_path'],
+            'search'      =&gt; ['http://example.com/search']}
+
+  require 'rupta/factory'
+  router = Rupta::Factory.new.create
+
+  # Rupta#detect returns the name of a detected route,
+  # a matched URI template and extracted URI parameters
+  p router.detect(route, 'http://example.com/bookmarks/123.atom')
+  # =&gt; [&quot;bookmark&quot;,
+  #     &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;,
+  #     {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
+
+  # if the uri is static, the extracted parameters is empty
+  p router.detect(routes, 'http://example.com/static_path')
+  # =&gt; [&quot;static_path&quot;, &quot;http://example.com/static_path&quot;, {}]
+
+  # query strings are omitted
+  p router.detect(routes, 'http://example.com/search?q=foo')
+  # =&gt; [&quot;search&quot;, &quot;http://example.com/search&quot;, {}]
+
+  # when no route is found, Rupta#detect returns nil
+  p router.detect(routes, 'http://example.com/not_found')
+  # =&gt; nil
+</pre>
 <h3>examples/fixtures/routes.yml</h3>
 <pre>
   bookmark:
@@ -102,51 +137,22 @@ usage is so simple. See the following examples.
   search:
     - http://example.com/search
 </pre>
-<h3>examples/routing_with_yaml.rb</h3>
+<h3>examples/routing_with_yaml_file.rb</h3>
 <pre>
   yaml_path = File.expand_path('fixtures/routes.yml', File.dirname(__FILE__))
 
-  require 'rupta/factory'
-  rupta = Rupta::Factory.create
+  # use Rupta::Yaml::Factory, if you define routes in a YAML file
+  require 'rupta/yaml/factory'
+  rupta = Rupta::Yaml::Factory.new.create
 
-  # Rupta#detect returns the name of a detected route,
-  # a matched URI template and extracted URI parameters
   p rupta.detect(yaml_path, 'http://example.com/bookmarks/123.atom')
-  # =&gt; [&quot;bookmark&quot;,
-  #     &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;,
-  #     {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
-
-  # if the uri is static, the extracted parameters is empty
-  p rupta.detect(yaml_path, 'http://example.com/static_path')
-  # =&gt; [&quot;static_path&quot;, &quot;http://example.com/static_path&quot;, {}]
-
-  # query strings are omitted
-  p rupta.detect(yaml_path, 'http://example.com/search?q=foo')
-  # =&gt; [&quot;search&quot;, &quot;http://example.com/search&quot;, {}]
-
-  # when no route is found, Rupta#detect returns nil
-  p rupta.detect(yaml_path, 'http://example.com/not_found')
-  # =&gt; nil
-</pre>
-<h3>examples/routing_with_hash.rb</h3>
-<pre>
-  routes = {'bookmark'    =&gt; ['http://example.com/bookmarks/{bookmark_id}',
-                              'http://example.com/bookmarks/{bookmark_id}.{format}'],
-            'static_path' =&gt; ['http://example.com/static_path'],
-            'search'      =&gt; ['http://example.com/search']}
-
-  require 'rupta/factory'
-  rupta = Rupta::Factory.create
-
-  # use Rupta#detect_with_hash, if you can create the routes manually
-  p rupta.detect_with_hash(route, 'http://example.com/bookmarks/123.atom')
   # =&gt; [&quot;bookmark&quot;,
   #     &quot;http://example.com/bookmarks/{bookmark_id}.{format}&quot;,
   #     {&quot;bookmark_id&quot;=&gt;&quot;123&quot;, &quot;format&quot;=&gt;&quot;atom&quot;}]
 </pre>
 <h2>Requirement</h2>
 <p>
-Rupta-0.9.1 was tested with Ruby 1.8.7 and 1.9.1.
+Rupta-0.9.2 was tested with Ruby 1.9.1.
 </p>
 <h2>Dependencies</h2>
 <pre>

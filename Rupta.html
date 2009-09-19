@@ -28,23 +28,29 @@
 				<div class="section-body">
 					<ul>
 					
-						<li><a href="./lib/rupta/yaml_loader_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/yaml_loader.rb">lib/rupta/yaml_loader.rb</a></li>
-					
 						<li><a href="./lib/rupta_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/rupta.rb">lib/rupta.rb</a></li>
 					
-						<li><a href="./lib/rupta/uri_extractor_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/uri_extractor.rb">lib/rupta/uri_extractor.rb</a></li>
+						<li><a href="./lib/rupta/yaml_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/yaml.rb">lib/rupta/yaml.rb</a></li>
 					
-						<li><a href="./lib/rupta/uri_extract_processor/default_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/uri_extract_processor/default.rb">lib/rupta/uri_extract_processor/default.rb</a></li>
+						<li><a href="./lib/rupta/helper/yaml_loader_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/helper/yaml_loader.rb">lib/rupta/helper/yaml_loader.rb</a></li>
 					
-						<li><a href="./lib/rupta/uri_parser_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/uri_parser.rb">lib/rupta/uri_parser.rb</a></li>
+						<li><a href="./lib/rupta/helper/uri_extract_processor/default_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/helper/uri_extract_processor/default.rb">lib/rupta/helper/uri_extract_processor/default.rb</a></li>
 					
-						<li><a href="./lib/rupta/uri_purifier_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/rupta/uri_purifier.rb">lib/rupta/uri_purifier.rb</a></li>
+						<li><a href="./lib/rupta/yaml/factory_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/yaml/factory.rb">lib/rupta/yaml/factory.rb</a></li>
+					
+						<li><a href="./lib/rupta/helper/uri_extractor_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/helper/uri_extractor.rb">lib/rupta/helper/uri_extractor.rb</a></li>
+					
+						<li><a href="./lib/rupta/helper/uri_parser_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/helper/uri_parser.rb">lib/rupta/helper/uri_parser.rb</a></li>
+					
+						<li><a href="./lib/rupta/helper/uri_purifier_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/rupta/helper/uri_purifier.rb">lib/rupta/helper/uri_purifier.rb</a></li>
 					
 						<li><a href="./lib/rupta/factory_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
 							class="thickbox" title="lib/rupta/factory.rb">lib/rupta/factory.rb</a></li>
@@ -74,17 +80,11 @@
 				<h3 class="section-header">Namespace</h3>
 				<ul class="link-list">
 					
-					<li><span class="type">MODULE</span> <a href="Rupta/UriExtractProcessor.html">Rupta::UriExtractProcessor</a></li>
+					<li><span class="type">MODULE</span> <a href="Rupta/Helper.html">Rupta::Helper</a></li>
 					
 					<li><span class="type">CLASS</span> <a href="Rupta/Factory.html">Rupta::Factory</a></li>
 					
-					<li><span class="type">CLASS</span> <a href="Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="Rupta/UriParser.html">Rupta::UriParser</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
+					<li><span class="type">CLASS</span> <a href="Rupta/Yaml.html">Rupta::Yaml</a></li>
 					
 				</ul>
 			</div>
@@ -96,13 +96,9 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000001">::new</a></li>
+					<li><a href="#M000000">::new</a></li>
 					
-					<li><a href="#M000004">#detect</a></li>
-					
-					<li><a href="#M000003">#detect_with_file</a></li>
-					
-					<li><a href="#M000002">#detect_with_hash</a></li>
+					<li><a href="#M000003">#detect</a></li>
 					
 				</ul>
 			</div>
@@ -148,17 +144,23 @@
 				
 					<li><a href="./Rupta/Factory.html">Rupta::Factory</a></li>
 				
-					<li><a href="./Rupta/UriExtractProcessor.html">Rupta::UriExtractProcessor</a></li>
+					<li><a href="./Rupta/Helper.html">Rupta::Helper</a></li>
 				
-					<li><a href="./Rupta/UriExtractProcessor/Default.html">Rupta::UriExtractProcessor::Default</a></li>
+					<li><a href="./Rupta/Helper/UriExtractProcessor.html">Rupta::Helper::UriExtractProcessor</a></li>
 				
-					<li><a href="./Rupta/UriExtractor.html">Rupta::UriExtractor</a></li>
+					<li><a href="./Rupta/Helper/UriExtractProcessor/Default.html">Rupta::Helper::UriExtractProcessor::Default</a></li>
 				
-					<li><a href="./Rupta/UriParser.html">Rupta::UriParser</a></li>
+					<li><a href="./Rupta/Helper/UriExtractor.html">Rupta::Helper::UriExtractor</a></li>
 				
-					<li><a href="./Rupta/UriPurifier.html">Rupta::UriPurifier</a></li>
+					<li><a href="./Rupta/Helper/UriParser.html">Rupta::Helper::UriParser</a></li>
 				
-					<li><a href="./Rupta/YamlLoader.html">Rupta::YamlLoader</a></li>
+					<li><a href="./Rupta/Helper/UriPurifier.html">Rupta::Helper::UriPurifier</a></li>
+				
+					<li><a href="./Rupta/Helper/YamlLoader.html">Rupta::Helper::YamlLoader</a></li>
+				
+					<li><a href="./Rupta/Yaml.html">Rupta::Yaml</a></li>
+				
+					<li><a href="./Rupta/Yaml/Factory.html">Rupta::Yaml::Factory</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -188,12 +190,12 @@
 
 		
 			<div id="new-method" class="method-detail ">
-				<a name="M000001"></a>
+				<a name="M000000"></a>
 
 				<div class="method-heading">
 				
 					<span class="method-name">new</span><span
-						class="method-args">(uri_purifier, uri_extractor, yaml_loader)</span>
+						class="method-args">(uri_purifier, uri_extractor)</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -208,10 +210,9 @@
 						id="new-source">
 <pre>
 <span class="ruby-comment cmt"># File lib/rupta.rb, line 2</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri_purifier</span>, <span class="ruby-identifier">uri_extractor</span>, <span class="ruby-identifier">yaml_loader</span>)
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri_purifier</span>, <span class="ruby-identifier">uri_extractor</span>)
     <span class="ruby-ivar">@uri_purifier</span> = <span class="ruby-identifier">uri_purifier</span>
     <span class="ruby-ivar">@uri_extractor</span> = <span class="ruby-identifier">uri_extractor</span>
-    <span class="ruby-ivar">@yaml_loader</span> = <span class="ruby-identifier">yaml_loader</span>
   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
@@ -227,73 +228,12 @@
 			<h3 class="section-header">Public Instance Methods</h3>
 
 		
-			<div id="detect-method" class="method-detail method-alias">
-				<a name="M000004"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">detect</span><span
-						class="method-args">(yaml_path, uri, omittable_uri_components = [:query])</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p>
-Alias for <a href="Rupta.html#M000003">detect_with_file</a>
-</p>
-					
-
-					
-				</div>
-
-				
-			</div>
-
-		
-			<div id="detect-with-file-method" class="method-detail ">
+			<div id="detect-method" class="method-detail ">
 				<a name="M000003"></a>
 
 				<div class="method-heading">
 				
-					<span class="method-name">detect_with_file</span><span
-						class="method-args">(yaml_path, uri, omittable_uri_components = [:query])</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					<p class="missing-docs">(Not documented)</p>
-					
-
-					
-					<div class="method-source-code"
-						id="detect-with-file-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/rupta.rb, line 17</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect_with_file</span>(<span class="ruby-identifier">yaml_path</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span> = [<span class="ruby-identifier">:query</span>])
-    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">detect_with_hash</span>(<span class="ruby-ivar">@yaml_loader</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">yaml_path</span>), <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span>)
-  <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-				<div class="aliases">
-					Also aliased as: <a href="Rupta.html#M000004">detect</a>
-				</div>
-				
-			</div>
-
-		
-			<div id="detect-with-hash-method" class="method-detail ">
-				<a name="M000002"></a>
-
-				<div class="method-heading">
-				
-					<span class="method-name">detect_with_hash</span><span
+					<span class="method-name">detect</span><span
 						class="method-args">(routes, uri, omittable_uri_components = [:query])</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
@@ -306,10 +246,10 @@ Alias for <a href="Rupta.html#M000003">detect_with_file</a>
 
 					
 					<div class="method-source-code"
-						id="detect-with-hash-source">
+						id="detect-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/rupta.rb, line 8</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect_with_hash</span>(<span class="ruby-identifier">routes</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span> = [<span class="ruby-identifier">:query</span>])
+<span class="ruby-comment cmt"># File lib/rupta.rb, line 7</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect</span>(<span class="ruby-identifier">routes</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span> = [<span class="ruby-identifier">:query</span>])
     <span class="ruby-identifier">pure_uri</span> = <span class="ruby-ivar">@uri_purifier</span>.<span class="ruby-identifier">purify</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span>)
     <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">route_name</span>, <span class="ruby-identifier">uri_templates</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">uri_template</span>, <span class="ruby-identifier">uri_parameters</span> = <span class="ruby-ivar">@uri_extractor</span>.<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">uri_templates</span>, <span class="ruby-identifier">pure_uri</span>)
