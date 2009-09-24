@@ -71,9 +71,9 @@
 				<h3 class="section-header">Methods</h3>
 				<ul class="link-list">
 					
-					<li><a href="#M000001">::new</a></li>
+					<li><a href="#M000002">::new</a></li>
 					
-					<li><a href="#M000002">#detect</a></li>
+					<li><a href="#M000003">#detect</a></li>
 					
 				</ul>
 			</div>
@@ -165,7 +165,7 @@
 
 		
 			<div id="new-method" class="method-detail ">
-				<a name="M000001"></a>
+				<a name="M000002"></a>
 
 				<div class="method-heading">
 				
@@ -204,12 +204,12 @@
 
 		
 			<div id="detect-method" class="method-detail ">
-				<a name="M000002"></a>
+				<a name="M000003"></a>
 
 				<div class="method-heading">
 				
 					<span class="method-name">detect</span><span
-						class="method-args">(path, uri, omittable_uri_components = [:query])</span>
+						class="method-args">(yaml_path, uri, omit_uri_components = [:query])</span>
 					<span class="method-click-advice">click to toggle source</span>
 				
 				</div>
@@ -224,9 +224,9 @@
 						id="detect-source">
 <pre>
 <span class="ruby-comment cmt"># File lib/rupta/yaml.rb, line 8</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span> = [<span class="ruby-identifier">:query</span>])
-      <span class="ruby-identifier">routes</span> = <span class="ruby-ivar">@yaml_loader</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">path</span>)
-      <span class="ruby-ivar">@router</span>.<span class="ruby-identifier">detect</span>(<span class="ruby-identifier">routes</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omittable_uri_components</span>)
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">detect</span>(<span class="ruby-identifier">yaml_path</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omit_uri_components</span> = [<span class="ruby-identifier">:query</span>])
+      <span class="ruby-identifier">routes</span> = <span class="ruby-ivar">@yaml_loader</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">yaml_path</span>)
+      <span class="ruby-ivar">@router</span>.<span class="ruby-identifier">detect</span>(<span class="ruby-identifier">routes</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">omit_uri_components</span>)
     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
