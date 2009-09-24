@@ -5,9 +5,9 @@ class Rupta
       @yaml_loader = yaml_loader
     end
 
-    def detect(path, uri, omittable_uri_components = [:query])
-      routes = @yaml_loader.load_file(path)
-      @router.detect(routes, uri, omittable_uri_components)
+    def detect(yaml_path, uri, omit_uri_components = [:query])
+      routes = @yaml_loader.load_file(yaml_path)
+      @router.detect(routes, uri, omit_uri_components)
     end
   end
 end
